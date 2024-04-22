@@ -78,12 +78,12 @@ const CreatePost = ({isAuth}) => {
     
         await addDoc(postsCollectionRef, postData);
       }
-        navigate('/');
+        navigate('/Admin');
     };
 
     useEffect ( () => {
       if(!isAuth){
-        navigate('/');
+        navigate('/Admin');
       }
     }, []);
 

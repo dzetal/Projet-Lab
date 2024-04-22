@@ -12,14 +12,19 @@ const Login = ({setIsAuth}) => {
       signInWithPopup(auth, provider).then((result) =>{
         localStorage.setItem("isAuth", true);
         setIsAuth(true);
-        navigate('/');
+        navigate('/Admin');
       });
+    };
+
+    const handleClick = () => {
+      navigate('/');
     };
 
     return ( 
         <div>
         <h1> Sign In with google </h1>
-        <button onClick={signInWithGoogle}> Sin in with Google</button>
+        <button onClick={signInWithGoogle}> Sign in with Google</button>
+        <button onClick={handleClick}> Click here for navigate to the webdoc </button>
         </div>
      );
 }
