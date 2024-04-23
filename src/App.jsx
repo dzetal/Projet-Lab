@@ -7,7 +7,8 @@ import CreatePost from './components/CreatePost'
 import { signOut } from 'firebase/auth'
 import { auth } from './firebaseConfig'
 import styled from "styled-components";
-import Admin from './components/Admin'
+import Admin from './components/Admin';
+
 function App() {
 
   const [isAuth, setIsAuth]= useState(localStorage.getItem("isAuth"));

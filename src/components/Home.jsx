@@ -117,11 +117,11 @@ padding: 5%;
 const Post= styled.div`
 
 display: flex;
-  flex-direction:row;
-  flex-direction: ${({ index }) => (index % 2 === 0 ? "row" : "row-reverse")};
-  align-items: center;
-  margin-bottom: 2rem;
-  border: 1px solid #ddd;
+flex-direction:row;
+flex-direction: ${({ index }) => (index % 2 === 0 ? "row" : "row-reverse")};
+align-items: center;
+margin-bottom: 2rem;
+border: 1px solid #ddd;
 `
 
 const ContainerText= styled.div`

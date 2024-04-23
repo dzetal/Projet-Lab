@@ -3,7 +3,8 @@ import { getDocs, collection, deleteDoc, doc } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { db } from "../firebaseConfig";
 import { useNavigate } from "react-router-dom";
-import { auth } from '../firebaseConfig'
+import { auth } from '../firebaseConfig';
+import { Link } from 'react-router-dom';
 import { signOut } from 'firebase/auth'
 
 const Admin = () => {
@@ -62,22 +63,72 @@ const Admin = () => {
     navigate('/CreatePost');
   };
 
-//   const truncateText = (text, maxLength) => {
-//     if (text.length > maxLength) {
-//       return text.substring(0, maxLength) + '...';
-//     }
-//     return text || "";
-//   };
+  const truncateText = (text, maxLength) => {
+    if (text.length > maxLength) {
+      return text.substring(0, maxLength) + '...';
+    }
+    return text || "";
+  };
 
    
     return ( 
 
         <div className="HomeContainer"> 
 
-        <h1>Admin interface</h1>
-        <button onClick={handleClick}> Add new post </button>
+<div className="container-fluid">
+      <div className="row">
+        <div className="sidebar border border-right col-md-3 col-lg-2 p-0 bg-body-tertiary">
+          <div
+            className="offcanvas-md offcanvas-end bg-body-tertiary"
+            tabIndex="-1"
+            id="sidebarMenu"
+            aria-labelledby="sidebarMenuLabel"
+          >
+            <div className="offcanvas-header">
+              <h5 className="offcanvas-title" id="sidebarMenuLabel">
+                Company name
+              </h5>
+              <button
+                type="button"
+                className="btn-close"
+                data-bs-dismiss="offcanvas"
+                aria-label="Close"
+              ></button>
+            </div>
+
+            <div className="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
+              <ul className="nav flex-column">
+                <li className="nav-item">
+                  <Link className="nav-link d-flex align-items-center gap-2 active" aria-current="page" to="/">
+                    <svg className="bi">
+                      <use xlinkHref="#house-fill" />
+                    </svg>
+                    Dashboard
+                  </Link>
+                </li>
+
+                <li className="nav-item">
+                  <Link className="nav-link d-flex align-items-center gap-2" to="/orders">
+                    <svg className="bi">
+                      <use xlinkHref="#file-earmark" />
+                    </svg>
+                    Orders
+                  </Link>
+                </li>
+
+                {/* Continuez avec les autres éléments du menu */}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
         <button onClick={signUserOut}> Log out </button>
 
+        <div class="btn-group me-2">
+            <button onClick={handleClick} type="button" class="btn btn-sm btn-outline-secondary">Add new post</button>
+          </div>
 
         <div>
           {postLists.map((post)=>{
@@ -85,42 +136,39 @@ const Admin = () => {
             
             <div key={post.id}> 
 
-<StyledTable>
-<TableHeader>
-        <TableRow>
-          <TableHeaderCell>Title</TableHeaderCell>
-          <TableHeaderCell>Content</TableHeaderCell>
-          <TableHeaderCell>Start Date</TableHeaderCell>
-          <TableHeaderCell>End Date</TableHeaderCell>
-          <TableHeaderCell>Image/Video URL</TableHeaderCell>
-          <TableHeaderCell>Extra URL</TableHeaderCell>
-          <TableHeaderCell>Action</TableHeaderCell>
-        </TableRow>
-      </TableHeader>
-
-      <TableCell>{post.title}</TableCell>
-            <TableCell>{post.content}</TableCell> 
-            {/* <TableCell>{truncateText(post.content, 30) || "N/A"}</TableCell>  */}
-            <TableCell>{post.debutdate}</TableCell>
-            <TableCell>{post.enddate}</TableCell>
-            <TableCell>{post.mediaURL}</TableCell>
-            {/* <TableCell>{truncateText(post.mediaURL, 30) || "N/A"}</TableCell> */}
-            <TableCell>{post.videoURL}</TableCell>
-                    <div className="DeletePost">
-
-          {isAuth && (<button  onClick={() => {
+<div class="table-responsive small">
+        <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+              <th scope="col">Title</th>
+              <th scope="col">Content</th>
+              <th scope="col">Start Date</th>
+              <th scope="col">End Date</th>
+              <th scope="col">Image/Video URL</th>
+              <th scope="col">Extra URL</th>
+              <th scope="col">Action</th>
+              
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{truncateText(post.title, 11) || "N/A"}</td>
+              <td>{truncateText(post.content, 30) || "N/A"}</td>
+              <td>{post.debutdate}</td>
+              <td>{post.enddate}</td>
+              <td>{truncateText(post.mediaURL, 30) || "N/A"}</td>
+              <td>{post.videoURL}</td>
+              <td> {isAuth && (<button onClick={() => {
             deletePost(post.id)
             }}> 
             &#128465; 
           </button>)}
-          
-        </div>
-
-        <div className="EditPost">
-        {isAuth && (<button onClick={() => {handleEdit(post.id)}}> edit </button>)}
-        </div>
-
-        </StyledTable>
+          {isAuth && (<button onClick={() => {handleEdit(post.id)}}> edit </button>)}
+           </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
             </div>
             )
