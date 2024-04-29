@@ -30,7 +30,7 @@ const Admin = () => {
      };
  
      getPosts();
-    })
+    },[])
  
     const deletePost = async (id) =>{
      const postDoc = doc(db, "posts", id)
@@ -64,10 +64,13 @@ const Admin = () => {
   };
 
   const truncateText = (text, maxLength) => {
+    if (typeof text !== 'string') {
+      return 'vide'; // Retourne 'N/A' si le texte est indéfini ou n'est pas une chaîne de caractères.
+    }
     if (text.length > maxLength) {
       return text.substring(0, maxLength) + '...';
     }
-    return text || "";
+    return text; // Retourne le texte original si sa longueur est égale ou inférieure à maxLength.
   };
 
    
@@ -75,59 +78,12 @@ const Admin = () => {
 
         <div className="HomeContainer"> 
 
-<div className="container-fluid">
-      <div className="row">
-        <div className="sidebar border border-right col-md-3 col-lg-2 p-0 bg-body-tertiary">
-          <div
-            className="offcanvas-md offcanvas-end bg-body-tertiary"
-            tabIndex="-1"
-            id="sidebarMenu"
-            aria-labelledby="sidebarMenuLabel"
-          >
-            <div className="offcanvas-header">
-              <h5 className="offcanvas-title" id="sidebarMenuLabel">
-                Company name
-              </h5>
-              <button
-                type="button"
-                className="btn-close"
-                data-bs-dismiss="offcanvas"
-                aria-label="Close"
-              ></button>
-            </div>
 
-            <div className="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
-              <ul className="nav flex-column">
-                <li className="nav-item">
-                  <Link className="nav-link d-flex align-items-center gap-2 active" aria-current="page" to="/">
-                    <svg className="bi">
-                      <use xlinkHref="#house-fill" />
-                    </svg>
-                    Dashboard
-                  </Link>
-                </li>
-
-                <li className="nav-item">
-                  <Link className="nav-link d-flex align-items-center gap-2" to="/orders">
-                    <svg className="bi">
-                      <use xlinkHref="#file-earmark" />
-                    </svg>
-                    Orders
-                  </Link>
-                </li>
-
-                {/* Continuez avec les autres éléments du menu */}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-        <button onClick={signUserOut}> Log out </button>
-
-        <div class="btn-group me-2">
-            <button onClick={handleClick} type="button" class="btn btn-sm btn-outline-secondary">Add new post</button>
+        <div>
+        <button style={{width:"75px", height:"75px"}} onClick={signUserOut}> Log out </button>
+          <div>
+                  <div className="btn-group me-2">
+            <button style={{width:"75px", height:"75px"}} onClick={handleClick} type="button" className="btn btn-sm btn-outline-secondary">Add new post</button>
           </div>
 
         <div>
@@ -136,8 +92,8 @@ const Admin = () => {
             
             <div key={post.id}> 
 
-<div class="table-responsive small">
-        <table class="table table-striped table-sm">
+<div className="table-responsive small">
+        <table className="table table-striped table-sm">
           <thead>
             <tr>
               <th scope="col">Title</th>
@@ -152,12 +108,16 @@ const Admin = () => {
           </thead>
           <tbody>
             <tr>
-              <td>{truncateText(post.title, 11) || "N/A"}</td>
-              <td>{truncateText(post.content, 30) || "N/A"}</td>
-              <td>{post.debutdate}</td>
-              <td>{post.enddate}</td>
-              <td>{truncateText(post.mediaURL, 30) || "N/A"}</td>
-              <td>{post.videoURL}</td>
+              <td>{truncateText(post.title, 11) || "vide"}</td>
+              {/* <td>{post.title}</td> */}
+              <td>{truncateText(post.content, 11) || "vide"}</td>
+              {/* <td>{post.content}</td> */}
+              <td>{post.debutdate || "vide"}</td>
+              <td>{post.enddate || "vide"}</td>
+              <td>{truncateText(post.mediaURL, 11) || "vide"}</td>
+              {/* <td>{post.mediaURL}</td> */}
+              <td>{truncateText(post.videoURL, 11) || "vide"}</td>
+              {/* <td>{post.videoURL || "N/A"}</td> */}
               <td> {isAuth && (<button onClick={() => {
             deletePost(post.id)
             }}> 
@@ -174,7 +134,10 @@ const Admin = () => {
             )
           })}
         </div>
+          
+          </div>
         </div>
+      </div>
      
      );
 }
