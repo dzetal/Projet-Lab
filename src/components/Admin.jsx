@@ -183,7 +183,7 @@ const Admin = () => {
         
           <div> 
 
-          <button onClick={handleClick} type="button" className="btn btn-primary"> Nouveau </button>
+          <button onClick={handleClick} type="button" className="btn btn-primary"> Ajouter </button>
         <div style={{marginTop:'50px'}} className="table-responsive small">
         <table className="table table-striped table-sm">
     <thead>

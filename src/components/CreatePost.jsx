@@ -184,7 +184,7 @@ const CreatePost = () => {
 
    <PostContainer>
 
-   <h1 style={{marginBottom:'30px'}}>{postId ? "Edit post" : "Create a post"}</h1>
+   <h1 style={{marginBottom:'30px'}}>{postId ? "MODIFIER" : "AJOUTER"}</h1>
    {error && <p>{error}</p>}
  
       <PostTitleInput>

@@ -9,8 +9,6 @@ import { auth } from './firebaseConfig'
 import styled from "styled-components";
 import Admin from './components/Admin';
 import MortPage from './pages/MortPage'
-import RenaissancePage from './pages/RenaissancePage'
-import PremissePage from './pages/PremissePage'
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
     
@@ -64,8 +62,6 @@ function App() {
         <Route path='/Admin' element={<Admin isAuth={isAuth}/>}></Route>
         <Route path='/Mort' element={<MortPage isAuth={isAuth}/>}></Route>
         <Route path='/Navigation' element={<NavigationComponent />}></Route>
-        <Route path='/Renaissance' element={<RenaissancePage isAuth={isAuth}/>}></Route>
-        <Route path='/Premisses' element={<PremissePage/>}></Route>
         <Route path='/PremissesText' element={<PremissesText/>}></Route>
         <Route path='/HoverEffect1' element={<HoverEffect1/>}></Route>
         <Route path='/MortText' element={<MortText isAuth={isAuth}/>}></Route>

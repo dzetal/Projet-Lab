@@ -279,9 +279,6 @@ const MortPage = () => {
         <Element
           key={section.id}
           name={section.id}
-          style={{
-            // height: '100vw',
-          }}
         >
          <NavbarIndividual>
     <Link to="about"smooth={true} onClick={handleAboutClick}> FFTA </Link>
