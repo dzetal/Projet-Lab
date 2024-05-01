@@ -64,14 +64,15 @@ const MortText = () => {
 }
 
 const TextContainer = styled.div`
-  height: 150px; 
+  margin-bottom: 200px;
+  margin-top: 200px;
   display: flex;
   flex-direction: row;
   justify-content: center;
 `;
 
 const AnimatedText = styled.div`
-  font-size: 4rem; 
+  font-size: 8rem; 
 `;
  
 export default MortText;

@@ -73,8 +73,8 @@ function App() {
         <Route path='/ScrollText' element={<ScrollingText isAuth={isAuth}/>}></Route>
         <Route path='/ScrollTextEnd' element={<ScrollingTextEnd isAuth={isAuth}/>}></Route>
         <Route path='/ScrollTextReverse' element={<ScrollingReverseTexte isAuth={isAuth}/>}></Route>
-        <Route path='/Login' element={<Login setIsAuth={setIsAuth}/>}></Route>
-        <Route path='/CreatePost' element={<CreatePost isAuth={isAuth}/>}></Route>
+        <Route path='/Login' element={<Login/>}></Route>
+        <Route path='/CreatePost' element={<CreatePost/>}></Route>
         <Route path="/CreatePost/:postId?" element={<CreatePost isAuth={isAuth} />} />
         
       </Routes>

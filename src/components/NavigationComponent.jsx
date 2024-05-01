@@ -25,7 +25,7 @@ const NavigationComponent = () => {
       
         <Navbar> 
 
-        <BackgroundVideo autoPlay muted loop>
+        <BackgroundVideo style={{backgroundColor:'#292929', opacity:'0.95'}} autoPlay muted loop>
          <source src={VideoIntro} type="video/mp4" />
         </BackgroundVideo>
         <NavContainer>
@@ -35,7 +35,7 @@ const NavigationComponent = () => {
         </MyLogo>
        {!isAuth ? (
         <>
-        <Link to={'/Login'}> Admin </Link>
+        <Link to={'/Login'} style={{color:'white', textDecoration:'none', fontSize:'1.2rem'}}> Admin </Link>
         </>
 
        ) :(
@@ -113,7 +113,7 @@ const Myheader= styled.div`
 display: flex;
 flex-direction: column;
 justify-content: center;
-height: 45rem;
+height: 35rem;
 `
  
 export default NavigationComponent;

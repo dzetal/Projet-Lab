@@ -17,17 +17,17 @@ const HoverEffect1 = ({ src, width, height }) => {
 
     const handleMouseEnter = () => {
         gsap.to(imageRef.current, {
-        x: -width / 2, // Déplacer vers la gauche de la moitié de la largeur de l'image
-        duration: 0.5, // Durée de l'animation
-        ease: 'power1.inOut', // Courbe d'animation
+        x: -width / 2, 
+        duration: 0.5, 
+        ease: 'power1.inOut', 
       });
       };
 
       const handleMouseLeave = () => {
         gsap.to(imageRef.current, {
-          x: 0, // Revenir à la position d'origine
-          duration: 0.5, // Durée de l'animation
-          ease: 'power1.inOut', // Courbe d'animation
+          x: 0, 
+          duration: 0.5, 
+          ease: 'power1.inOut', 
         });
       };
     return ( 
@@ -35,10 +35,10 @@ const HoverEffect1 = ({ src, width, height }) => {
         <div
       style={{
         overflow: 'hidden',
-          width: `${width / 2}px`, // La moitié de la largeur
-          height: `${height}px`, 
+          width: '450px', 
+          height: '660px', 
           borderRadius: '20px',
-          // La hauteur d'origine
+          
       }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -49,10 +49,10 @@ const HoverEffect1 = ({ src, width, height }) => {
         ref={imageRef}
         style={{
           position: 'relative',
-            width: `${width}px`, // La largeur complète de l'image
+            width: `${width}px`, 
             height: `${height}px`,
             border: 'none', 
-            // La hauteur complète de l'image
+            
             
           }}
         />

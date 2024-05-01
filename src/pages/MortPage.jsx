@@ -15,7 +15,9 @@ import { TextPlugin } from "gsap/TextPlugin";
 import PremissesText from '../components/PremissesText';
 import MortText from '../components/MortText';
 import RenaissanceText from '../components/RenaissanceText';
-
+import image1 from "../images/FFTA1.png"
+import image2 from "../images/FFTA2.png"
+import image3 from "../images/FFTA3.png"
 
 gsap.registerPlugin(useGSAP,Flip,ScrollTrigger,Observer,ScrollToPlugin,TextPlugin);
 
@@ -31,15 +33,17 @@ const Article1 = () => (
   <Link to="secondPostContainer" smooth={true}> RENAISSANCE </Link>
       </Navbar>
   <ContainerDiv>
-  <TextDiv>
-      <h1> Lorem ipsum </h1>
-      <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione repudiandae ipsa nihil et quidem corporis illum, reprehenderit similique id aut ullam nobis, maxime repellendus sed ipsam. Officiis, dolorum sequi. Nihil? </p>
-
-  </TextDiv>
-
-  <ImageDiv style={{backgroundColor:"yellow"}}>
-
+  <ImageDiv>
+  <img style={{height:'100%', width:'100%', borderRadius:'15px',}} src={image1}/>
   </ImageDiv>
+  <TextDiv>
+        <h1 style={{padding:'5%', flexWrap:'nowrap', display:'inline-block', fontSize:'1.2rem', textTransform:'uppercase'}}> 1. Fondation et essor (1899-1914) </h1>
+        <p style={{marginLeft:'26px', textTransform:'uppercase'}}> 1899 : La Fédération française de Tir à l'Arc (FFTA) est créée le 1er février à Paris, sous l'impulsion de Maurice Bouet et d'autres passionnés. Cette initiative vise à structurer et promouvoir la discipline en France.</p>
+        <p style={{marginLeft:'26px', textTransform:'uppercase'}}> 1900 : Le tir à l'arc fait ses débuts aux Jeux Olympiques de Paris, avec des épreuves pour hommes et femmes. Cette reconnaissance internationale donne un coup de fouet à la popularité du sport.</p>
+        <p style={{marginLeft:'26px', textTransform:'uppercase'}}> La FFTA organise le premier championnat national de tir à l'arc, marquant ainsi l'officialisation de la compétition en France.</p>
+        <p style={{marginTop:'160px', marginLeft:'5px', textTransform:'uppercase', fontWeight:'bold', fontSize: '0.7rem', fontStyle:'italic'}}> Les années qui précèdent la Première Guerre mondiale sont marquées par une croissance constante du tir à l'arc en France. La création de nombreux clubs et associations à travers le pays témoigne de l'engouement pour cette discipline.</p>
+
+    </TextDiv>
   </ContainerDiv>
   </div>
 );
@@ -53,38 +57,40 @@ const Article2 = () => (
   <Link to="secondPostContainer" smooth={true}> RENAISSANCE </Link>
       </Navbar>
   <ContainerDiv>
-  <TextDiv>
-      <h1> Lorem ipsum </h1>
-      <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione repudiandae ipsa nihil et quidem corporis illum, reprehenderit similique id aut ullam nobis, maxime repellendus sed ipsam. Officiis, dolorum sequi. Nihil? </p>
 
-  </TextDiv>
-
-  <ImageDiv style={{backgroundColor:"red"}}>
-
+  <ImageDiv>
+  <img style={{height:'100%', width:'100%', borderRadius:'15px',}} src={image2}/>
   </ImageDiv>
+
+  <TextDiv>
+    <h1 style={{padding:'5%', flexWrap:'nowrap', display:'inline-block', fontSize:'1.2rem', textTransform:'uppercase'}}> 2. L'épreuve de la guerre (1914-1918) </h1>
+        <p style={{padding:'5%', textTransform:'uppercase'}}> 1914 : La Première Guerre mondiale éclate, bouleversant tous les aspects de la vie française. De nombreux archers, comme la plupart des hommes valides, sont mobilisés sur le front. Les compétitions nationales et internationales de tir à l'arc sont suspendues pendant la durée de la guerre. Les infrastructures sportives, dont des terrains de tir à l'arc, sont souvent endommagées ou détruites. La guerre a un impact dramatique sur la communauté du tir à l'arc français. De nombreux archers perdent la vie ou sont gravement blessés.</p>
+
+    </TextDiv>
   </ContainerDiv>
   </div>
 );
 
 const Article3 = () => (
   <div> 
-      <MortText/>
+      <RenaissanceText/>
       <Navbar>
   <Link to="section1" smooth={true}> PREMISSES </Link> |
   <Link to="section2" smooth={true}> MORT </Link> |
   <Link to="secondPostContainer" smooth={true}> RENAISSANCE </Link>
       </Navbar>
-  <ContainerDiv>
-  <TextDiv>
-      <h1> Lorem ipsum </h1>
-      <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione repudiandae ipsa nihil et quidem corporis illum, reprehenderit similique id aut ullam nobis, maxime repellendus sed ipsam. Officiis, dolorum sequi. Nihil? </p>
+      <ContainerDiv>
+
+<ImageDiv>
+<img style={{height:'100%', width:'100%', borderRadius:'15px',}} src={image2}/>
+</ImageDiv>
+
+<TextDiv>
+  <h1 style={{padding:'5%', flexWrap:'nowrap', display:'inline-block', fontSize:'1.2rem', textTransform:'uppercase'}}> 2. L'épreuve de la guerre (1914-1918) </h1>
+      <p style={{padding:'5%', textTransform:'uppercase'}}> 1914 : La Première Guerre mondiale éclate, bouleversant tous les aspects de la vie française. De nombreux archers, comme la plupart des hommes valides, sont mobilisés sur le front. Les compétitions nationales et internationales de tir à l'arc sont suspendues pendant la durée de la guerre. Les infrastructures sportives, dont des terrains de tir à l'arc, sont souvent endommagées ou détruites. La guerre a un impact dramatique sur la communauté du tir à l'arc français. De nombreux archers perdent la vie ou sont gravement blessés.</p>
 
   </TextDiv>
-
-  <ImageDiv style={{backgroundColor:"blue"}}>
-
-  </ImageDiv>
-  </ContainerDiv>
+</ContainerDiv>
   </div>
 );
 
@@ -99,13 +105,16 @@ const Section1 = () => (
         </Navbar>
     <ContainerDiv>
     <TextDiv>
-        <h1> Lorem ipsum </h1>
-        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione repudiandae ipsa nihil et quidem corporis illum, reprehenderit similique id aut ullam nobis, maxime repellendus sed ipsam. Officiis, dolorum sequi. Nihil? </p>
+        <h1 style={{padding:'5%', flexWrap:'nowrap', display:'inline-block', fontSize:'1.2rem', textTransform:'uppercase'}}> 1. Fondation et essor (1899-1914) </h1>
+        <p style={{marginLeft:'26px', textTransform:'uppercase'}}> 1899 : La Fédération française de Tir à l'Arc (FFTA) est créée le 1er février à Paris, sous l'impulsion de Maurice Bouet et d'autres passionnés. Cette initiative vise à structurer et promouvoir la discipline en France.</p>
+        <p style={{marginLeft:'26px', textTransform:'uppercase'}}> 1900 : Le tir à l'arc fait ses débuts aux Jeux Olympiques de Paris, avec des épreuves pour hommes et femmes. Cette reconnaissance internationale donne un coup de fouet à la popularité du sport.</p>
+        <p style={{marginLeft:'26px', textTransform:'uppercase'}}> La FFTA organise le premier championnat national de tir à l'arc, marquant ainsi l'officialisation de la compétition en France.</p>
+        <p style={{marginTop:'200px', marginLeft:'5px', textTransform:'uppercase', fontWeight:'bold', fontSize: '0.7rem', fontStyle:'italic'}}> Les années qui précèdent la Première Guerre mondiale sont marquées par une croissance constante du tir à l'arc en France. La création de nombreux clubs et associations à travers le pays témoigne de l'engouement pour cette discipline.</p>
 
     </TextDiv>
 
-    <ImageDiv style={{backgroundColor:"yellow"}}>
-
+    <ImageDiv>
+    <img style={{height:'100%', width:'100%', borderRadius:'15px',}} src={image1}/>
     </ImageDiv>
     </ContainerDiv>
     </div>
@@ -121,13 +130,13 @@ const Section1 = () => (
         </Navbar>
     <ContainerDiv>
     <TextDiv>
-        <h1> Lorem ipsum </h1>
-        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione repudiandae ipsa nihil et quidem corporis illum, reprehenderit similique id aut ullam nobis, maxime repellendus sed ipsam. Officiis, dolorum sequi. Nihil? </p>
+    <h1 style={{padding:'5%', flexWrap:'nowrap', display:'inline-block', fontSize:'1.2rem', textTransform:'uppercase'}}> 2. L'épreuve de la guerre (1914-1918) </h1>
+        <p style={{padding:'5%', textTransform:'uppercase'}}> 1914 : La Première Guerre mondiale éclate, bouleversant tous les aspects de la vie française. De nombreux archers, comme la plupart des hommes valides, sont mobilisés sur le front. Les compétitions nationales et internationales de tir à l'arc sont suspendues pendant la durée de la guerre. Les infrastructures sportives, dont des terrains de tir à l'arc, sont souvent endommagées ou détruites. La guerre a un impact dramatique sur la communauté du tir à l'arc français. De nombreux archers perdent la vie ou sont gravement blessés.</p>
 
     </TextDiv>
 
-    <ImageDiv style={{backgroundColor:"red"}}>
-
+    <ImageDiv>
+    <img style={{height:'100%', width:'100%', borderRadius:'15px',}} src={image2}/>
     </ImageDiv>
     </ContainerDiv>
     </div>
@@ -148,19 +157,16 @@ const Section1 = () => (
           <Post key={post.id} index={post.index}>
             <TextDiv>
               <div className="PostTitle">
-                <h3>{post.title}</h3>
-                <div className="DateContainer">
-                  <p>{post.debutdate} - {post.enddate}</p>
-                </div>
+                <h1 style={{padding:'5%', flexWrap:'nowrap', display:'inline-block', fontSize:'1.2rem', textTransform:'uppercase'}}>{post.title}</h1>
               </div>
   
               <div className="PostContent">
-                <p>{post.content}</p>
+                <p style={{padding:'5%', textTransform:'uppercase'}}>{post.content}</p>
               </div>
             </TextDiv>
             
             <ImageDiv>
-              <img src={post.mediaURL} />
+              <img style={{height:'100%', width:'100%', borderRadius:'15px',}} src={post.mediaURL} />
               {post.videoURL && renderMediaPreview(post.videoURL)}
             </ImageDiv>
           </Post>
@@ -309,12 +315,13 @@ const MortPage = () => {
 const Navbar = styled.div`
   position: relative;
   width: 35%;
-  border: 2px solid;
   border-radius: 35px;
-  padding: 15px;
+  padding: 18px;
   margin-bottom: 20px;
-  background: lightgray;
+  border: 1px solid white;
+  background-color: #292929;
   display: flex;
+  cursor: pointer;
   justify-content: space-around;
   transform: translateX(185%);
 `;
@@ -323,24 +330,26 @@ const NavbarIndividual = styled.div`
 position: relative;
 align-items: center;
 border-radius: 35px;
-top: 208px;
+top: 654px;
+border: 1px solid white;
 left: 57%;
 width: 20%;
-padding: 15px;
-border: 2px solid;
+padding: 17.5px;
 cursor: pointer;
+background-color: #00A3FF;
 `;
 
 const NavbarIndividual2 = styled.div`
 position: relative;
 align-items: center;
 border-radius: 35px;
-top: 208px;
+border: 1px solid white;
+top: 654px;
 left: 50%;
 width: 25%;
-padding: 15px;
-border: 2px solid;
+padding: 17.5px;
 cursor: pointer;
+background-color: #FF6B00;
 `;
 
  
@@ -364,18 +373,17 @@ width: 100%;
 
 const TextDiv = styled.div`
 
-width: 50%;
-height: 500px;
-border: solid 2px;
+width: 44%;
+height: 600px;
 border-radius: 15px;
-
+background-color: #fff;
+color: black;
 `
 
 const ImageDiv = styled.div`
 
-width: 50%;
-height: 500px;
-border: solid 2px;
+width: 55%;
+height: 600px;
 border-radius: 15px;
 
 `

@@ -1,7 +1,7 @@
-body {
-  padding: 20px; /* Applique un padding de 20px à tout le body */
-  margin: 0; /* Supprime le margin par défaut pour éviter les conflits */
-}
+ body {
+  background-color: #292929;
+  opacity: 0.9;
+} 
 img {
   image-rendering: -webkit-optimize-contrast; /* Pour Chrome */
   image-rendering: crisp-edges; /* Pour autres navigateurs */

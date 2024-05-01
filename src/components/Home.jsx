@@ -4,12 +4,9 @@ import React, { useEffect, useState } from "react";
 import { db } from "../firebaseConfig";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion"
-import test1 from "../images/image1.png";
-import test3 from "../images/image2.png";
-import test2 from "../images/image3.png";
-import after1 from "../images/after1.png";
-import after2 from "../images/after2.png";
-import after3 from "../images/after3.png";
+import image1 from "../images/hover1.jpg"
+import image2 from "../images/hover2.jpg"
+import image3 from "../images/hover3.jpg"
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
     
@@ -18,6 +15,10 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Observer } from "gsap/Observer";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { TextPlugin } from "gsap/TextPlugin";
+import HoverEffect1 from "./HoverEffect1";
+import HoverEffect2 from "./HoverEffect2";
+import HoverEffect3 from "./HoverEffect3";
+import MortPage from "../pages/MortPage";
 
 
 gsap.registerPlugin(useGSAP,Flip,ScrollTrigger,Observer,ScrollToPlugin,TextPlugin);
@@ -56,238 +57,47 @@ const Home = ({isAuth}) => {
     }
   };
 
-  const [isHovered, setIsHovered] = useState([false, false, false]);
-
-  const handleMouseEnter = (index) => {
-    setIsHovered((prev) => prev.map((h, i) => (i === index ? true : h)));
-  };
-
-  // Fonction pour gérer le départ de la souris d'un élément spécifique
-  const handleMouseLeave = (index) => {
-    setIsHovered((prev) => prev.map((h, i) => (i === index ? false : h)));
-  };
-
 
     return ( 
-        <div className="HomeContainer"> 
+        <div className="HomeContainer" style={{background:'#292929', color:'white'}}> 
 
         <FirstPostContainer>
-
-
-        <ContentDiv
-        onMouseEnter={() => handleMouseEnter(0)} // Utilisez la fonction pour chaque élément
-        onMouseLeave={() => handleMouseLeave(0)}
-        >
-        <BackgroundImage 
-          style={{ backgroundImage: `url(${test1})` }}
-          initial={{ opacity: 1 }}
-          animate={{ opacity: isHovered[0] ? 1 : 1 }}
-          transition={{ duration: 0.4 }}
-        />
-        <BackgroundImage 
-          style={{ backgroundImage: `url(${after1})` }}
-          initial={{ opacity: 1 }}
-          animate={{ opacity: isHovered[0] ? 1 : 0 }}
-          transition={{ duration: 0.2, delay: 0.4 }}
-        />
-        <TextOverlay>
-          <CenteredText
-            animate={{ x: isHovered[0] ? -200 : 0, opacity: isHovered[0] ? 0 : 1 }}
-            transition={{ duration: 0.5 }}
-          >
-            Texte de base
-          </CenteredText>
-
-          <CenteredText
-            animate={{ x: isHovered[0] ? 0 : 100, opacity: isHovered[0] ? 1 : 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            Texte au survol
-          </CenteredText>
-        </TextOverlay>
-        </ContentDiv>
-
-
-
-        <ContentDiv
-        onMouseEnter={() => handleMouseEnter(1)}
-        onMouseLeave={() => handleMouseLeave(1)}
-        >
-        <BackgroundImage 
-          style={{ backgroundImage: `url(${test2})` }}
-          initial={{ opacity: 1 }}
-          animate={{ opacity: isHovered[1] ? 1 : 1 }}
-          transition={{ duration: 0.4 }}
-        />
-        <BackgroundImage 
-          style={{ backgroundImage: `url(${after2})` }}
-          initial={{ opacity: 1 }}
-          animate={{ opacity: isHovered[1] ? 1 : 0 }}
-          transition={{ duration: 0.2, delay: 0.4 }}
-        />
-        <TextOverlay>
-          <CenteredText
-            animate={{ x: isHovered[1] ? -200 : 0, opacity: isHovered[1] ? 0 : 1 }}
-            transition={{ duration: 0.5 }}
-          >
-            Texte de base
-          </CenteredText>
-
-          <CenteredText
-            animate={{ x: isHovered[1] ? 0 : 100, opacity: isHovered[1] ? 1 : 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            Texte au survol
-          </CenteredText>
-        </TextOverlay>
-        </ContentDiv>
-
-
-
-        <ContentDiv
-        onMouseEnter={() => handleMouseEnter(2)}
-        onMouseLeave={() => handleMouseLeave(2)}
-        >
-        <BackgroundImage 
-          style={{ backgroundImage: `url(${test3})` }}
-          initial={{ opacity: 1 }}
-          animate={{ opacity: isHovered[2] ? 1 : 1 }}
-          transition={{ duration: 0.4 }}
-        />
-        <BackgroundImage 
-          style={{ backgroundImage: `url(${after3})` }}
-          initial={{ opacity: 1 }}
-          animate={{ opacity: isHovered[2] ? 1 : 0 }}
-          transition={{ duration: 0.2, delay: 0.4 }}
-        />
-        <TextOverlay>
-          <CenteredText
-            animate={{ x: isHovered[2] ? -200 : 0, opacity: isHovered[2] ? 0 : 1 }}
-            transition={{ duration: 0.5 }}
-          >
-            Texte de base
-          </CenteredText>
-
-          <CenteredText
-            animate={{ x: isHovered[2] ? 0 : 100, opacity: isHovered[2] ? 1 : 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            Texte au survol
-          </CenteredText>
-        </TextOverlay>
-        </ContentDiv>
-
-
+          <HoverEffect1
+          src={image1}
+          width={1366}
+          height={805}/>
+          <HoverEffect2
+          src={image2}
+          width={1366}
+          height={805}/>
+          <HoverEffect3
+          src={image3}
+          width={1366}
+          height={805}/>
         </FirstPostContainer>
 
         <SecondPostContainer>
-          {postLists.map((post)=>{
-            return (
-            
-            <Post key={post.id} index={post.index}> 
-            <ContainerText> 
-            <div className="PostTitle">
-               <h3> {post.title} </h3>
-
-            <div className="DateContainer">
-               <p> {post.debutdate} - {post.enddate} </p> 
-            </div> 
-            </div>
-
-            <div className="PostContent">
-               <p> {post.content} </p> 
-            </div>
-            </ContainerText>
-
-            <div> 
-              <img src={post.mediaURL}/>
-              
-            </div>
-
-            <div className="PostMediaPreview">
-              {post.videoURL && renderMediaPreview(post.videoURL)}
-            </div>
-
-            </Post>
-            )
-          })}
+          <MortPage/>
         </SecondPostContainer>
         </div>
      );
 }
 
-const CenteredText = styled(motion.h1)`
-  text-align: center; 
- font-size: 4rem;
- width: 100%;
-`;
-
-const BackgroundImage = styled(motion.div)`
-  position: absolute;
-  top: 50;
-  left: 50;
-  width: 447px;
-  height: 600px;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-`;
-
-const TextOverlay = styled.div`
-  position: relative;
-  color: white;
-  z-index: 1;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center; 
-  width: 100%;
-  height: 100%;
-`;
-
 
 const FirstPostContainer= styled.div`
-
+position: relative;
+bottom: 10px;
 display: flex;
 flex-direction: row;
 justify-content: space-between;
+z-index: 1;
 
 `
-
-const ContentDiv= styled.div`
-
-width: 447px;
-height: 600px;
-position: 'relative'; 
-overflow: 'hidden'; 
-`
-
 
 const SecondPostContainer= styled.div`
-
-display: flex;
-flex-direction: column;
-border: solid 2px black;
 margin-top: 50px;
-padding: 5%;
+padding:2%;
 `
 
-const Post= styled.div`
-
-display: flex;
-flex-direction:row;
-align-items: center;
-margin-bottom: 2rem;
-border: 1px solid #ddd;
-`
-
-const ContainerText= styled.div`
-
-display: flex;
-flex-direction: column;
-justify-content: space-between;
-border: solid 2px yellow;
-margin-top: 25px;
-`
  
 export default Home;

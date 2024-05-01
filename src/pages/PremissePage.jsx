@@ -63,6 +63,53 @@ const PremissePage = () => {
           <p>You can often find me lounging on the couch, snoring and dreaming of bacon.</p>
         </section>
       </div>
+
+      <div style={{marginTop:'50px'}} className="table-responsive small">
+          {postLists.map((post)=>{
+            return (
+            <div key={post.id}> 
+        <table className="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Title</th>
+          <th scope="col">Content</th>
+          <th scope="col">Start Date</th>
+          <th scope="col">End Date</th>
+          <th scope="col">Image/Video URL</th>
+          <th scope="col">Extra URL</th>
+          <th scope="col">Action</th>
+              
+        </tr>
+      </thead>
+      <tbody>
+            <tr>
+              <td>{truncateText(post.title, 11) || "vide"}</td>
+              {/* <td>{post.title}</td> */}
+              <td>{truncateText(post.content, 11) || "vide"}</td>
+              {/* <td>{post.content}</td> */}
+              <td>{post.debutdate || "vide"}</td>
+              <td>{post.enddate || "vide"}</td>
+              <td>{truncateText(post.mediaURL, 11) || "vide"}</td>
+              {/* <td>{post.mediaURL}</td> */}
+              <td>{truncateText(post.videoURL, 11) || "vide"}</td>
+              {/* <td>{post.videoURL || "N/A"}</td> */}
+              <td>  <button onClick={() => {
+            deletePost(post.id)
+            }}> 
+            &#128465; 
+          </button>
+          <button onClick={() => {handleEdit(post.id)}}> edit </button>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+            </div>
+            )
+          })}
+        </div>
+
     </div>
      );
 }

@@ -1,12 +1,22 @@
 // import styled from "styled-components";
 import React, { useEffect, useState } from "react";
+import styled from "styled-components";
+import { Link } from 'react-router-dom';
 import { addDoc, collection, doc, updateDoc, getDoc } from "firebase/firestore";
 import {ref, uploadBytes, getDownloadURL} from "firebase/storage"
 import { db, storage } from "../firebaseConfig";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import image from "../images/Arc.png"
+import home from "../images/accueil.png"
+import edit from "../images/editer.png"
+import out from "../images/sortie.png"
+import add from "../images/ajouter.png"
+import photo from "../images/photos.png"
 
-const CreatePost = ({isAuth}) => {
+
+
+const CreatePost = () => {
   const { postId } = useParams();
 
     const [title, setTitle] = useState('');
@@ -14,10 +24,8 @@ const CreatePost = ({isAuth}) => {
     const [media, setMedia]= useState(null);
     const [videoURL, setVideoURL] = useState('');
     const [error, setError] = useState(null);
-    const [debutdate, setDebutdate] = useState('');
-    const [enddate, setEnddate] = useState('');
-
-    const postsCollectionRef = collection(db, "posts")
+    const postsCollectionRef = collection(db, "posts");
+    const [imagePreview, setImagePreview] = useState(null);;
     let navigate = useNavigate();
 
     useEffect(() => {
@@ -28,8 +36,6 @@ const CreatePost = ({isAuth}) => {
                 const postData = postSnapshot.data();
                 setTitle(postData.title);
                 setContent(postData.content);
-                setDebutdate(postData.debutdate);
-                setEnddate(postData.enddate);
             }
         };
         loadPostToEdit();
@@ -44,8 +50,8 @@ const CreatePost = ({isAuth}) => {
 
 
     const createPost = async () =>{
-      if (!title || !content || !debutdate || !enddate) {
-        setError("Please fill in all required fields.");
+      if (!title || !content || !media) {
+        setError("Veuillez remplir tous les champs obligatoires.");
         return;
       }
     
@@ -54,22 +60,24 @@ const CreatePost = ({isAuth}) => {
         await updateDoc(postDocRef, {
           title,
           content,
-          debutdate,
-          enddate
         });
       } else {
         let postData = {
           title,
           content,
-          debutdate,
-          enddate
         };
     
         if (media) {
           const mediaRef = ref(storage, `media/${media.name}`);
-          await uploadBytes(mediaRef, media);
-          const mediaURL = await getDownloadURL(mediaRef);
-          postData.mediaURL = mediaURL;
+          try {
+            await uploadBytes(mediaRef, media);
+            const mediaURL = await getDownloadURL(mediaRef); // Obtenir l'URL du fichier
+            postData.mediaURL = mediaURL; // Ajouter l'URL au postData
+          } catch (err) {
+            console.error("Erreur d'upload :", err);
+            setError("Erreur lors de l'upload du média.");
+            return;
+          }
         }
     
         if (videoURL) {
@@ -81,57 +89,182 @@ const CreatePost = ({isAuth}) => {
         navigate('/Admin');
     };
 
-    useEffect ( () => {
-      if(!isAuth){
-        navigate('/Admin');
-      }
-    }, []);
+    const handleDivClick = () => {
+      document.getElementById('fileInput').click();
+    };
 
+    const handleMediaChangeFile = (event) => {
+      const file = event.target.files[0]; // Récupérer le premier fichier sélectionné
+      if (file) {
+        const reader = new FileReader(); // Créer un lecteur de fichiers
+        reader.onloadend = () => {
+          setImagePreview(reader.result); // Mettre à jour l'aperçu avec le contenu du fichier
+        };
+        reader.readAsDataURL(file); // Lire le fichier comme URL de données
+      }
+      setMedia(file);
+    };
 
 
     return ( 
- <div className="CeatePost">
-   <div className="PostContainer">
+ <div className="CeatePost" style={{display:'flex', flexDirection:'row', height:'100%'}}>
 
-   <h1>{postId ? "Edit post" : "Create a post"}</h1>
-   {error && <p>{error}</p>}
- 
-      <div className="PostTitleInput">
-      <input placeholder="title" 
-        value={title}
-        onChange={(event) => setTitle(event.target.value)}/>
-      </div>
+<div
+      className="d-flex flex-column flex-shrink-0 bg-body-tertiary"
+      style={{ width: '4.5rem' }}
+    >
+            <a
+        href="/"
+        className="d-block p-3 link-body-emphasis text-decoration-none"
+        title="Icon-only"
+        data-bs-toggle="tooltip"
+        data-bs-placement="right"
+      >
+        <svg className="bi pe-none" width="40" height="32">
+          <use xlinkHref="#bootstrap" />
+        </svg>
+        <span className="visually-hidden">Icon-only</span>
+      </a>
 
-      <div className="PostContentInput">
-      <textarea placeholder="write your post" 
-        value={content} 
-        onChange={(event) => setContent(event.target.value)}/>
-      </div>
-
-      <div className="DebutDateContainer">
-      <label>Start date:</label>
-      <input type="date" value={debutdate} onChange={(event) => setDebutdate(event.target.value)} />
-      </div>
-
-      <div className="EndDateContainer">
-      <label>End date:</label>
-      <input type="date" value={enddate} onChange={(event) => setEnddate(event.target.value)} />
-      </div>
-
-      <div className="PostMediaInput">
-        <input type="file" accept="image/*, video/*" onChange={handleMediaChange}/>
-      </div>
-
-      <div>
-          <label>Video URL:</label>
-          <input type="text" value={videoURL} onChange={(e) => setVideoURL(e.target.value)} />
-      </div> 
-
-      <button onClick={createPost}>{postId ? "Save changes" : "Submit post"} </button>
+      <ul className="nav nav-pills nav-flush flex-column mb-auto text-center">
+        <li className="nav-item">
+          <Link
+            to='/admin'
+            className="nav-link py-3 border-bottom rounded-0"
+            aria-current="page"
+            title="Home"
+            data-bs-toggle="tooltip"
+            data-bs-placement="right"
+          >
+            <div style={{width:'25px', height:'25px'}}>
+              <img style={{width:'100%', height:'100%'}} src={home}/>
+            </div>
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/CreatePost"
+            className="nav-link active py-3 border-bottom rounded-0"
+            title="Dashboard"
+            data-bs-toggle="tooltip"
+            data-bs-placement="right"
+          >
+            <div style={{width:'25px', height:'25px'}}>
+              <img style={{width:'100%', height:'100%'}} src={add}/>
+            </div>
+          </Link>
+        </li>
+        <li>
+          <Link
+            className="nav-link py-3 border-bottom rounded-0"
+            title="Dashboard"
+            data-bs-toggle="tooltip"
+            data-bs-placement="right"
+          >
+            <div style={{width:'25px', height:'25px'}}>
+              <img style={{width:'100%', height:'100%'}} src={edit}/>
+            </div>
+          </Link>
+        </li>
+        <li>
+          <Link
+            className="nav-link py-3 border-bottom rounded-0"
+            title="Orders"
+            data-bs-toggle="tooltip"
+            data-bs-placement="right"
+          >
+            <div style={{width:'25px', height:'25px'}} >
+               <img style={{width:'100%', height:'100%'}} src={out}/>  
+              </div>
+          </Link> 
+        </li>
+      </ul>
 
     </div>
+
+   <PostContainer>
+
+   <h1 style={{marginBottom:'30px'}}>{postId ? "Edit post" : "Create a post"}</h1>
+   {error && <p>{error}</p>}
+ 
+      <PostTitleInput>
+      <input placeholder="Titre" 
+        value={title}
+        onChange={(event) => setTitle(event.target.value)}
+        style={{borderBottom:'1px solid', borderTop:'0', borderLeft:'0', borderRight:'0', borderColor:'#006CEB'}}
+        />
+      </PostTitleInput>
+
+      <div> 
+      <div className="PostMediaInput"
+            onClick={handleDivClick}   
+            style={{
+        width: '90px',
+        height: '90px',
+        display: 'flex',
+        border: imagePreview ? 'none' : '2px solid #ccc',
+        backgroundImage: imagePreview ? `url(${imagePreview})` : 'none',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        justifyContent: 'center',
+        alignItems: 'center',
+        cursor: 'pointer', 
+        marginTop: '20px',
+        marginBottom: '20px',
+      }}>
+
+{!imagePreview && (
+        <img
+          style={{ width: '40px', height: '40px' }} 
+          src={photo} // Utilisez l'image "photo"
+        />
+      )}
+
+        <input id="fileInput"
+        type="file"
+        accept="image/*, video/*"
+        onChange={handleMediaChangeFile}
+        style={{
+          display: 'none', // Masquer l'input
+        }}/>
+      </div>
+      </div>
+
+
+      <PostTitleInput>
+        <label htmlFor="title"> Contenu </label>
+      <textarea placeholder="write your post" 
+        value={content} 
+        onChange={(event) => setContent(event.target.value)}
+        style={{height:'45vh'}}
+        />
+      </PostTitleInput>
+
+      {/* <div>
+          <label>Video URL:</label>
+          <input type="text" value={videoURL} onChange={(e) => setVideoURL(e.target.value)} />
+      </div>  */}
+
+
+      <button style={{marginTop:'10px'}} className="btn btn-primary w-100 py-2" onClick={createPost}>{postId ? "Enregistrer" : "Ajouter"} </button>
+
+    </PostContainer>
   </div>
      );
 }
- 
+
+const PostContainer = styled.table`
+display:flex;
+flex-direction:column;
+justify-content: center;
+width: 100%;
+padding: 5%;
+`; 
+
+const PostTitleInput = styled.table`
+display: flex;
+flex-direction:column;
+`; 
+
+
 export default CreatePost;
