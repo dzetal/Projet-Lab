@@ -24,6 +24,10 @@ import ScrollingReverseTexte from './components/ScrollingReverseText'
 import ScrollingTextEnd from './components/ScrollingTextEnd'
 import logo from "../src/images/Logo.png"
 import NavigationComponent from './components/NavigationComponent'
+import PremissesText from './components/PremissesText'
+import MortText from './components/MortText'
+import RenaissanceText from './components/RenaissanceText'
+import HoverEffect1 from './components/HoverEffect1'
 
 
 gsap.registerPlugin(useGSAP,Flip,ScrollTrigger,Observer,ScrollToPlugin,TextPlugin);
@@ -53,7 +57,7 @@ function App() {
 )}
 
 
-
+    
       <Routes>
         
         <Route path='/' element={<Home isAuth={isAuth}/>}></Route>
@@ -61,7 +65,11 @@ function App() {
         <Route path='/Mort' element={<MortPage isAuth={isAuth}/>}></Route>
         <Route path='/Navigation' element={<NavigationComponent />}></Route>
         <Route path='/Renaissance' element={<RenaissancePage isAuth={isAuth}/>}></Route>
-        <Route path='/Premisses' element={<PremissePage isAuth={isAuth}/>}></Route>
+        <Route path='/Premisses' element={<PremissePage/>}></Route>
+        <Route path='/PremissesText' element={<PremissesText/>}></Route>
+        <Route path='/HoverEffect1' element={<HoverEffect1/>}></Route>
+        <Route path='/MortText' element={<MortText isAuth={isAuth}/>}></Route>
+        <Route path='/RenaissanceText' element={<RenaissanceText isAuth={isAuth}/>}></Route>
         <Route path='/ScrollText' element={<ScrollingText isAuth={isAuth}/>}></Route>
         <Route path='/ScrollTextEnd' element={<ScrollingTextEnd isAuth={isAuth}/>}></Route>
         <Route path='/ScrollTextReverse' element={<ScrollingReverseTexte isAuth={isAuth}/>}></Route>

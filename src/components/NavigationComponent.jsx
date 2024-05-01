@@ -21,6 +21,8 @@ const NavigationComponent = () => {
       });
     };
     return (  
+
+      
         <Navbar> 
 
         <BackgroundVideo autoPlay muted loop>
@@ -58,7 +60,6 @@ const NavigationComponent = () => {
 
 
 </Navbar>
-
         
     );
 }
