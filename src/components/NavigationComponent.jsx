@@ -93,6 +93,7 @@ display: flex;
 flex-direction: row;
 justify-content: space-between;
 width: 100%;
+padding: 10px;
 font-family:'MaPolice' sans-serif;
 `
 const LogOutButton= styled.div`

@@ -26,7 +26,7 @@ const ScrollingTextEnd = () => {
         const duration = textWidth / 50; // Définir la durée en fonction de la largeur et de la vitesse
     
         gsap.to(text, {
-          x: -424,
+          x: -332,
           duration: 2.7,
           repeat: -1,
           ease: 'linear',

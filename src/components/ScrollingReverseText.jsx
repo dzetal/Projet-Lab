@@ -24,11 +24,11 @@ const ScrollingReverseTexte = () => {
         const containerWidth = text.offsetParent.offsetWidth;
         const duration = textWidth / 50;
 
-        gsap.set(text, { x: -192 });
+        gsap.set(text, { x: -142 });
     
         gsap.to(text, {
           x: 0, 
-          duration: 2.7,
+          duration: 2.2,
           repeat: -1,
           ease: 'linear',
         });

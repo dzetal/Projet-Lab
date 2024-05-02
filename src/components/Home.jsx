@@ -4,9 +4,9 @@ import React, { useEffect, useState } from "react";
 import { db } from "../firebaseConfig";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion"
-import image1 from "../images/hover1.jpg"
-import image2 from "../images/hover2.jpg"
-import image3 from "../images/hover3.jpg"
+import image1 from "../images/Group17.png"
+import image2 from "../images/Group18.png"
+import image3 from "../images/Group19.png"
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
     
@@ -64,15 +64,15 @@ const Home = ({isAuth}) => {
         <FirstPostContainer>
           <HoverEffect1
           src={image1}
-          width={1366}
+          width={935}
           height={805}/>
           <HoverEffect2
           src={image2}
-          width={1366}
+          width={935}
           height={805}/>
           <HoverEffect3
           src={image3}
-          width={1366}
+          width={935}
           height={805}/>
         </FirstPostContainer>
 
@@ -87,6 +87,7 @@ const Home = ({isAuth}) => {
 const FirstPostContainer= styled.div`
 position: relative;
 bottom: 10px;
+padding: 6px;
 display: flex;
 flex-direction: row;
 justify-content: space-between;

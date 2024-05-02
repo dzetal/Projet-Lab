@@ -18,6 +18,11 @@ import RenaissanceText from '../components/RenaissanceText';
 import image1 from "../images/FFTA1.png"
 import image2 from "../images/FFTA2.png"
 import image3 from "../images/FFTA3.png"
+import Testexample from './test';
+import Testexample2 from './test2';
+import Monde from './Monde';
+import Monde3 from './monde3';
+import Monde2 from './Monde2';
 
 gsap.registerPlugin(useGSAP,Flip,ScrollTrigger,Observer,ScrollToPlugin,TextPlugin);
 
@@ -36,14 +41,7 @@ const Article1 = () => (
   <ImageDiv>
   <img style={{height:'100%', width:'100%', borderRadius:'15px',}} src={image1}/>
   </ImageDiv>
-  <TextDiv>
-        <h1 style={{padding:'5%', flexWrap:'nowrap', display:'inline-block', fontSize:'1.2rem', textTransform:'uppercase'}}> 1. Fondation et essor (1899-1914) </h1>
-        <p style={{marginLeft:'26px', textTransform:'uppercase'}}> 1899 : La Fédération française de Tir à l'Arc (FFTA) est créée le 1er février à Paris, sous l'impulsion de Maurice Bouet et d'autres passionnés. Cette initiative vise à structurer et promouvoir la discipline en France.</p>
-        <p style={{marginLeft:'26px', textTransform:'uppercase'}}> 1900 : Le tir à l'arc fait ses débuts aux Jeux Olympiques de Paris, avec des épreuves pour hommes et femmes. Cette reconnaissance internationale donne un coup de fouet à la popularité du sport.</p>
-        <p style={{marginLeft:'26px', textTransform:'uppercase'}}> La FFTA organise le premier championnat national de tir à l'arc, marquant ainsi l'officialisation de la compétition en France.</p>
-        <p style={{marginTop:'160px', marginLeft:'5px', textTransform:'uppercase', fontWeight:'bold', fontSize: '0.7rem', fontStyle:'italic'}}> Les années qui précèdent la Première Guerre mondiale sont marquées par une croissance constante du tir à l'arc en France. La création de nombreux clubs et associations à travers le pays témoigne de l'engouement pour cette discipline.</p>
-
-    </TextDiv>
+  <Monde/>
   </ContainerDiv>
   </div>
 );
@@ -61,12 +59,7 @@ const Article2 = () => (
   <ImageDiv>
   <img style={{height:'100%', width:'100%', borderRadius:'15px',}} src={image2}/>
   </ImageDiv>
-
-  <TextDiv>
-    <h1 style={{padding:'5%', flexWrap:'nowrap', display:'inline-block', fontSize:'1.2rem', textTransform:'uppercase'}}> 2. L'épreuve de la guerre (1914-1918) </h1>
-        <p style={{padding:'5%', textTransform:'uppercase'}}> 1914 : La Première Guerre mondiale éclate, bouleversant tous les aspects de la vie française. De nombreux archers, comme la plupart des hommes valides, sont mobilisés sur le front. Les compétitions nationales et internationales de tir à l'arc sont suspendues pendant la durée de la guerre. Les infrastructures sportives, dont des terrains de tir à l'arc, sont souvent endommagées ou détruites. La guerre a un impact dramatique sur la communauté du tir à l'arc français. De nombreux archers perdent la vie ou sont gravement blessés.</p>
-
-    </TextDiv>
+  <Monde2/>
   </ContainerDiv>
   </div>
 );
@@ -85,11 +78,7 @@ const Article3 = () => (
 <img style={{height:'100%', width:'100%', borderRadius:'15px',}} src={image2}/>
 </ImageDiv>
 
-<TextDiv>
-  <h1 style={{padding:'5%', flexWrap:'nowrap', display:'inline-block', fontSize:'1.2rem', textTransform:'uppercase'}}> 2. L'épreuve de la guerre (1914-1918) </h1>
-      <p style={{padding:'5%', textTransform:'uppercase'}}> 1914 : La Première Guerre mondiale éclate, bouleversant tous les aspects de la vie française. De nombreux archers, comme la plupart des hommes valides, sont mobilisés sur le front. Les compétitions nationales et internationales de tir à l'arc sont suspendues pendant la durée de la guerre. Les infrastructures sportives, dont des terrains de tir à l'arc, sont souvent endommagées ou détruites. La guerre a un impact dramatique sur la communauté du tir à l'arc français. De nombreux archers perdent la vie ou sont gravement blessés.</p>
-
-  </TextDiv>
+<Monde3/>
 </ContainerDiv>
   </div>
 );
@@ -104,15 +93,7 @@ const Section1 = () => (
     <Link to="secondPostContainer" smooth={true}> RENAISSANCE </Link>
         </Navbar>
     <ContainerDiv>
-    <TextDiv>
-        <h1 style={{padding:'5%', flexWrap:'nowrap', display:'inline-block', fontSize:'1.2rem', textTransform:'uppercase'}}> 1. Fondation et essor (1899-1914) </h1>
-        <p style={{marginLeft:'26px', textTransform:'uppercase'}}> 1899 : La Fédération française de Tir à l'Arc (FFTA) est créée le 1er février à Paris, sous l'impulsion de Maurice Bouet et d'autres passionnés. Cette initiative vise à structurer et promouvoir la discipline en France.</p>
-        <p style={{marginLeft:'26px', textTransform:'uppercase'}}> 1900 : Le tir à l'arc fait ses débuts aux Jeux Olympiques de Paris, avec des épreuves pour hommes et femmes. Cette reconnaissance internationale donne un coup de fouet à la popularité du sport.</p>
-        <p style={{marginLeft:'26px', textTransform:'uppercase'}}> La FFTA organise le premier championnat national de tir à l'arc, marquant ainsi l'officialisation de la compétition en France.</p>
-        <p style={{marginTop:'190px', marginLeft:'5px', textTransform:'uppercase', fontWeight:'bold', fontSize: '0.7rem', fontStyle:'italic'}}> Les années qui précèdent la Première Guerre mondiale sont marquées par une croissance constante du tir à l'arc en France. La création de nombreux clubs et associations à travers le pays témoigne de l'engouement pour cette discipline.</p>
-
-    </TextDiv>
-
+     <Testexample/>
     <ImageDiv>
     <img style={{height:'100%', width:'100%', borderRadius:'15px',}} src={image1}/>
     </ImageDiv>
@@ -129,12 +110,7 @@ const Section1 = () => (
     <Link to="secondPostContainer" smooth={true}> RENAISSANCE </Link>
         </Navbar>
     <ContainerDiv>
-    <TextDiv>
-    <h1 style={{padding:'5%', flexWrap:'nowrap', display:'inline-block', fontSize:'1.2rem', textTransform:'uppercase'}}> 2. L'épreuve de la guerre (1914-1918) </h1>
-        <p style={{padding:'5%', textTransform:'uppercase'}}> 1914 : La Première Guerre mondiale éclate, bouleversant tous les aspects de la vie française. De nombreux archers, comme la plupart des hommes valides, sont mobilisés sur le front. Les compétitions nationales et internationales de tir à l'arc sont suspendues pendant la durée de la guerre. Les infrastructures sportives, dont des terrains de tir à l'arc, sont souvent endommagées ou détruites. La guerre a un impact dramatique sur la communauté du tir à l'arc français. De nombreux archers perdent la vie ou sont gravement blessés.</p>
-
-    </TextDiv>
-
+      <Testexample2/>
     <ImageDiv>
     <img style={{height:'100%', width:'100%', borderRadius:'15px',}} src={image2}/>
     </ImageDiv>

@@ -26,6 +26,11 @@ import PremissesText from './components/PremissesText'
 import MortText from './components/MortText'
 import RenaissanceText from './components/RenaissanceText'
 import HoverEffect1 from './components/HoverEffect1'
+import Testexample from './pages/test'
+import Testexample2 from './pages/test2'
+import Monde from './pages/Monde'
+import Monde2 from './pages/Monde2'
+import Monde3 from './pages/monde3'
 
 
 gsap.registerPlugin(useGSAP,Flip,ScrollTrigger,Observer,ScrollToPlugin,TextPlugin);
@@ -63,6 +68,11 @@ function App() {
         <Route path='/Mort' element={<MortPage isAuth={isAuth}/>}></Route>
         <Route path='/Navigation' element={<NavigationComponent />}></Route>
         <Route path='/PremissesText' element={<PremissesText/>}></Route>
+        <Route path='/test' element={<Testexample/>}></Route>
+        <Route path='/test2' element={<Testexample2/>}></Route>
+        <Route path='/monde' element={<Monde/>}></Route>
+        <Route path='/monde2' element={<Monde2/>}></Route>
+        <Route path='/monde3' element={<Monde3/>}></Route>
         <Route path='/HoverEffect1' element={<HoverEffect1/>}></Route>
         <Route path='/MortText' element={<MortText isAuth={isAuth}/>}></Route>
         <Route path='/RenaissanceText' element={<RenaissanceText isAuth={isAuth}/>}></Route>

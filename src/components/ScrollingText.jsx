@@ -23,7 +23,7 @@ const ScrollingText = () => {
        
 
         gsap.to(text, {
-          x: -333, 
+          x: -274, 
           duration: 2.7,
           repeat: -1,
           ease: 'linear',
