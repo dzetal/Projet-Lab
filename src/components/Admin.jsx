@@ -157,7 +157,7 @@ const Admin = () => {
             data-bs-toggle="tooltip"
             data-bs-placement="right"
           >
-            <div style={{width:'25px', height:'25px'}}>
+            <div style={{width:'25px', height:'25px', fontFamily:'MaPolice sans-serif',}}>
               <img style={{width:'100%', height:'100%'}} src={edit}/>
             </div>
           </Link>
@@ -179,7 +179,7 @@ const Admin = () => {
 
     </div>
 
-        <div style={{width:'100%', height:'100vh', padding:'1%'}}>
+        <div style={{width:'100%', height:'100vh', padding:'1%', fontFamily:'MaPolice sans-serif',}}>
         
           <div> 
 
@@ -204,7 +204,7 @@ const Admin = () => {
           <td>{truncateText(post.videoURL, 11) || 'vide'}</td>
           <td>
           <button
-                      style={{ border: "none", width: "40px", height: "40px" }}
+                      style={{ border: "none", width: "40px", height: "40px", fontFamily:'MaPolice', }}
                       onClick={() => openDeleteModal(post.id)}
                     >
                       <img style={{ width: "25px", height: "25px" }} src={poubelle} />
@@ -260,6 +260,7 @@ const TableHeader = styled.thead`
 const TableRow = styled.tr`
   &:nth-child(even) {
     background-color: #f9f9f9;
+  
   }
 `;
 

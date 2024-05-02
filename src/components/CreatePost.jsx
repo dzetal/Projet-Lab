@@ -184,14 +184,14 @@ const CreatePost = () => {
 
    <PostContainer>
 
-   <h1 style={{marginBottom:'30px'}}>{postId ? "MODIFIER" : "AJOUTER"}</h1>
+   <h1 style={{marginBottom:'30px',  fontFamily:'MaPolice sans-serif',}}>{postId ? "MODIFIER" : "AJOUTER"}</h1>
    {error && <p>{error}</p>}
  
       <PostTitleInput>
       <input placeholder="Titre" 
         value={title}
         onChange={(event) => setTitle(event.target.value)}
-        style={{borderBottom:'1px solid', borderTop:'0', borderLeft:'0', borderRight:'0', borderColor:'#006CEB'}}
+        style={{borderBottom:'1px solid', borderTop:'0', borderLeft:'0', borderRight:'0',  fontFamily:'MaPolice sans-serif',borderColor:'#006CEB'}}
         />
       </PostTitleInput>
 
@@ -225,7 +225,8 @@ const CreatePost = () => {
         accept="image/*, video/*"
         onChange={handleMediaChangeFile}
         style={{
-          display: 'none', // Masquer l'input
+          display: 'none',
+          fontFamily:'MaPolice sans-serif', // Masquer l'input
         }}/>
       </div>
       </div>
@@ -236,7 +237,8 @@ const CreatePost = () => {
       <textarea placeholder="write your post" 
         value={content} 
         onChange={(event) => setContent(event.target.value)}
-        style={{height:'45vh'}}
+        style={{height:'45vh',  fontFamily:'MaPolice sans-serif'}}
+       
         />
       </PostTitleInput>
 
@@ -246,7 +248,7 @@ const CreatePost = () => {
       </div>  */}
 
 
-      <button style={{marginTop:'10px'}} className="btn btn-primary w-100 py-2" onClick={createPost}>{postId ? "Enregistrer" : "Ajouter"} </button>
+      <button style={{marginTop:'10px',  fontFamily:'MaPolice sans-serif',}} className="btn btn-primary w-100 py-2" onClick={createPost}>{postId ? "Enregistrer" : "Ajouter"} </button>
 
     </PostContainer>
   </div>
@@ -259,11 +261,13 @@ flex-direction:column;
 justify-content: center;
 width: 100%;
 padding: 5%;
+font-family:'MaPolice' sans-serif;
 `; 
 
 const PostTitleInput = styled.table`
 display: flex;
 flex-direction:column;
+font-family:'MaPolice' sans-serif;
 `; 
 
 

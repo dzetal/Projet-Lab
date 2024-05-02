@@ -43,8 +43,8 @@ const ScrollingReverseTexte = () => {
         position: 'relative', 
         }}
       >
-        <div ref={textRef} style={{ display: 'inline-block', fontSize:'4rem', color:'white', fontWeight:'bold' }}>
-           MORT  MORT  MORT MORT  MORT  MORT  MORT MORT  MORT  MORT 
+        <div ref={textRef} style={{ display: 'inline-block', fontSize:'6rem', color:'white', fontWeight:'bold', fontFamily:'MaPolice'}}>
+           MORT  MORT  MORT MORT  MORT  MORT  MORT MORT  MORT  MORT MORT  MORT 
         </div>
   
         

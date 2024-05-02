@@ -73,6 +73,7 @@ const TextContainer = styled.div`
 
 const AnimatedText = styled.div`
   font-size: 8rem; 
+  font-family:'MaPolice';
 `;
  
 export default RenaissanceText;

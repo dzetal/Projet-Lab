@@ -109,7 +109,7 @@ const Section1 = () => (
         <p style={{marginLeft:'26px', textTransform:'uppercase'}}> 1899 : La Fédération française de Tir à l'Arc (FFTA) est créée le 1er février à Paris, sous l'impulsion de Maurice Bouet et d'autres passionnés. Cette initiative vise à structurer et promouvoir la discipline en France.</p>
         <p style={{marginLeft:'26px', textTransform:'uppercase'}}> 1900 : Le tir à l'arc fait ses débuts aux Jeux Olympiques de Paris, avec des épreuves pour hommes et femmes. Cette reconnaissance internationale donne un coup de fouet à la popularité du sport.</p>
         <p style={{marginLeft:'26px', textTransform:'uppercase'}}> La FFTA organise le premier championnat national de tir à l'arc, marquant ainsi l'officialisation de la compétition en France.</p>
-        <p style={{marginTop:'200px', marginLeft:'5px', textTransform:'uppercase', fontWeight:'bold', fontSize: '0.7rem', fontStyle:'italic'}}> Les années qui précèdent la Première Guerre mondiale sont marquées par une croissance constante du tir à l'arc en France. La création de nombreux clubs et associations à travers le pays témoigne de l'engouement pour cette discipline.</p>
+        <p style={{marginTop:'190px', marginLeft:'5px', textTransform:'uppercase', fontWeight:'bold', fontSize: '0.7rem', fontStyle:'italic'}}> Les années qui précèdent la Première Guerre mondiale sont marquées par une croissance constante du tir à l'arc en France. La création de nombreux clubs et associations à travers le pays témoigne de l'engouement pour cette discipline.</p>
 
     </TextDiv>
 
@@ -321,6 +321,7 @@ const Navbar = styled.div`
   cursor: pointer;
   justify-content: space-around;
   transform: translateX(185%);
+  font-family:'MaPolice' sans-serif;
 `;
 
 const NavbarIndividual = styled.div`
@@ -334,6 +335,7 @@ width: 20%;
 padding: 17.5px;
 cursor: pointer;
 background-color: #00A3FF;
+font-family:'MaPolice' sans-serif;
 `;
 
 const NavbarIndividual2 = styled.div`
@@ -347,6 +349,7 @@ width: 25%;
 padding: 17.5px;
 cursor: pointer;
 background-color: #FF6B00;
+font-family:'MaPolice' sans-serif;
 `;
 
  
@@ -356,6 +359,7 @@ display: flex;
 flex-direction: row;
 justify-content: space-between;
 width: 100%;
+font-family:'MaPolice' sans-serif;
 
 ` 
 
@@ -365,6 +369,7 @@ display: flex;
 flex-direction: column;
 justify-content: space-between;
 width: 100%;
+font-family:'MaPolice' sans-serif;
 
 ` 
 
@@ -375,6 +380,7 @@ height: 600px;
 border-radius: 15px;
 background-color: #fff;
 color: black;
+font-family:'MaPolice' sans-serif;
 `
 
 const ImageDiv = styled.div`
@@ -391,6 +397,7 @@ display: flex;
 flex-direction:row;
 align-items: center;
 margin-bottom: 2rem;
+font-family:'MaPolice' sans-serif;
 `
 
 export default MortPage;

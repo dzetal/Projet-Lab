@@ -39,7 +39,7 @@ const Login = () => {
         <div>
       <div style={{display:'flex', flexDirection:'row', justifyContent:'center'}}>
 
-<form style={{width: '50%', padding:'5%'}}>
+<form style={{width: '50%', padding:'5%', fontFamily:'MaPolice sans-serif',}}>
 <div style={{display:'flex', flexDirection:'row', justifyContent:'center'}}> 
 <Link to="/"> <img className="mb-4" src={logo} alt="" width="100" height="120"/> </Link>
 </div>

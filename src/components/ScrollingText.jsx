@@ -40,8 +40,8 @@ const ScrollingText = () => {
         position: 'relative', 
         }}
       >
-        <div ref={textRef} style={{ display: 'inline-block', fontSize:'4rem', color:'white', fontWeight:'bold'  }}>
-        PREMISSES PREMISSES PREMISSES PREMISSES PREMISSES PREMISSES
+        <div ref={textRef} style={{ display: 'inline-block', fontSize:'6rem', color:'white', fontWeight:'bold', fontFamily:'MaPolice',  }}>
+        PREMISSES PREMISSES PREMISSES PREMISSES PREMISSES PREMISSES PREMISSES PREMISSES
         </div>
   
         

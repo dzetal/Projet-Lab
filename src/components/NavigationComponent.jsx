@@ -35,7 +35,7 @@ const NavigationComponent = () => {
         </MyLogo>
        {!isAuth ? (
         <>
-        <Link to={'/Login'} style={{color:'white', textDecoration:'none', fontSize:'1.2rem'}}> Admin </Link>
+        <Link to={'/Login'} style={{color:'white', textDecoration:'none', fontSize:'1.2rem',  fontFamily:'MaPolice sans-serif',}}> Admin </Link>
         </>
 
        ) :(
@@ -79,6 +79,7 @@ const NavContainer= styled.div`
 display: flex;
 flex-direction: row;
 justify-content: space-between;
+font-family:'MaPolice' sans-serif;
 
 `
 const MyLogo= styled.div`
@@ -92,6 +93,7 @@ display: flex;
 flex-direction: row;
 justify-content: space-between;
 width: 100%;
+font-family:'MaPolice' sans-serif;
 `
 const LogOutButton= styled.div`
 
@@ -99,6 +101,7 @@ width: 100px;
 height: 20px;
 border: 2px solid black;
 display: block;
+font-family:'MaPolice' sans-serif;
 `
 
 const Navbar= styled.div`
@@ -106,6 +109,7 @@ const Navbar= styled.div`
 display: flex;
 flex-direction: column;
 position: relative;
+font-family:'MaPolice' sans-serif;
 `
 
 const Myheader= styled.div`
@@ -114,6 +118,7 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 height: 35rem;
+font-family:'MaPolice' sans-serif;
 `
  
 export default NavigationComponent;
